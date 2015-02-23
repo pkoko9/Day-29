@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Angular Image Post</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+        <link rel="stylesheet" href="styles/main.css">
+
+	</head>
+	
+	<body id='format'ng-app="app" ng-controller='postController'>
+		
+			<div id='formBar'>
+				<i ng-click="expandMenu()" class="ion-plus-circled"></i>
+				<span ng-show='menuHide'></span>
+			</div>
+
+<!-- Form build and render code -->
+				
+				<form id='form'ng-submit="addImage()">
+					
+						<input type="url" ng-class="errorType" ng-model="imageURL" placeholder=" Image URL">
+							<span ng-bind="fail1"></span>
+					
+						<textarea type="text" ng-model="caption" placeholder="Image Caption"></textarea>
+							<span ng-bind="fail2"></span>					
+						<br>		
+<!-- Submit button click code -->
+					<span class='buttons'>
+						<button id='cancel' ng-click="cancelClick()" type="submit">CANCEL</button>
+						<button id='add' type='submit' ng-click ="sendImage(imageURL, caption)"> <i class="ion-image"></i>ADD IMAGE</button>
+					</span><br><br><br>
+				</form>
+
+		<div class='formRender' ng-hide="formRender"></div>
+
+<!-- Submitted images render code -->
+
+		<div class='images'>
+			<ul ng-repeat="picture in myArray">
+				<img ng-src="{{ picture.url }}">
+				<div id='caption'>{{ picture.caption }}
+				</div>
+			</ul>
+		</div>
+
+		<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+		<script type="text/javascript" src="scripts/app.js"></script>
+		<script type="text/javascript" src="scripts/controllers.js"></script>
+
+	</body>
+</html>

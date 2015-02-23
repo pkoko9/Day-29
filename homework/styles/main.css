@@ -1,0 +1,88 @@
+#format {
+	font-family: sans-serif;
+	margin: 0 1em 0 1em;
+}
+
+#formBar {
+	height: 2.5em;
+	background-color: #406999;
+}
+
+.ion-plus-circled {
+	padding: 2em;
+	font-size: 1.5em;
+}
+
+.ion-image {
+	font-size: 1.5em;
+/*	padding-top: 0.5em;*/
+}
+
+img {
+	display: block;
+	width: 90%;
+}
+
+#headline {
+	font-size: 24px;
+}
+
+#form {
+	display: block;
+	background-color: white;
+	padding: 25px 15px 25px 10px;
+}
+
+.images {
+	background-color: #EBE6E6;
+/*	margin: 0 auto;*/
+}
+
+#caption {
+	width: 90%;
+	padding: 2em 0 2em 0;
+	background-color: white;
+	text-indent: 1em;
+	color: #A8A8A3;
+}
+
+input {
+	height: 100%;
+	width: 100%;
+	font-size: 14px;
+	display: block; 
+}
+
+textarea {
+	height: 100%;
+	width: 100%;
+	font-size: 14px;
+	display: block;
+	border-color: #CFCFD1;
+	margin-top: 2em;
+}
+
+.buttons {
+	float: right;
+}
+
+#cancel {
+	font-size: 10px;
+	height: 4.5em;
+	width: 10em;
+	color: white;
+	background-color: #C4C4C4;
+	border: none;
+	border-radius: 5px;
+}
+
+#add {
+	font-size: 10px;
+	height: 4.5em;
+	width: 10em;
+	color: white;
+	background-color: #3DB345;
+	border: none;
+	border-radius: 5px;
+}
+
