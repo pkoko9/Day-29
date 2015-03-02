@@ -15,12 +15,12 @@
 		
 			<div id='formBar'>
 				<i ng-click="expandMenu()" class="ion-plus-circled"></i>
-				<span ng-show='menuHide'></span>
+<!-- 				<span ng-show='menuHide'></span> -->
 			</div>
 
 <!-- Form build and render code -->
 				
-				<form id='form'ng-submit="addImage()">
+				<form id='form'ng-submit="addImage()" ng-hide='menuHide'>
 					
 						<input type="url" ng-class="errorType" ng-model="imageURL" placeholder=" Image URL">
 							<span ng-bind="fail1"></span>
@@ -40,7 +40,7 @@
 <!-- Submitted images render code -->
 
 		<div class='images'>
-			<ul ng-repeat="picture in myArray">
+			<ul ng-repeat="picture in displayArray">
 				<img ng-src="{{ picture.url }}">
 				<div id='caption'>{{ picture.caption }}
 				</div>

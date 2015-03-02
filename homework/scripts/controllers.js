@@ -5,15 +5,45 @@ angular.module ('app.controllers', [])
 
 		$scope.data='';
 		$scope.myArray=[];
+		$scope.displayArray=[];
 		$scope.menuHide = true;
 
 		$scope.expandMenu = function() {
-		$scope.menuHidden = false;
+		$scope.menuHide = !$scope.menuHide;
 		};
 
 
 // get and post image code
+	$scope.sendImage = function(myImage, myCaption) {
+		var myImageExists = false;
+		for(var i=0; i<$scope.myArray.length; i++) {
+			if($scope.myArray[i].url === myImage) {
+				myImageExists = true;
+			}
+		}
 
+		if(myImageExists === false) {
+			$http.post(
+				'http://tiny-pizza-server.herokuapp.com/collections/pk',
+				
+				{url: myImage,
+				caption: myCaption}
+			);
+
+			$scope.displayArray.unshift(
+			
+				{url: myImage,
+				caption: myCaption}
+				);
+				console.log($scope.displayArray);
+		}
+		
+		else {
+			alert('That image already exists');
+		}
+
+	};
+	
 	$http.get('http://tiny-pizza-server.herokuapp.com/collections/pk')
 	.success(function(response) {
 		// Successfully received a response from the server
@@ -25,6 +55,7 @@ angular.module ('app.controllers', [])
 			}
 		}
 		// $scope.myArray = response;
+		$scope.displayArray = $scope.myArray;
 		console.log($scope.myArray);
 		console.log(response);
 
@@ -42,28 +73,28 @@ angular.module ('app.controllers', [])
 
 	// Called when submit is clicked
 	// Send the data to the server
-	$scope.sendImage = function(myImage, myCaption) {
-		var myImageExists = false;
-		for(var i=0; i<$scope.myArray.length; i++) {
-			if($scope.myArray[i].url === myImage) {
-				myImageExists = true;
-			}
-		}
+	// $scope.sendImage = function(myImage, myCaption) {
+	// 	var myImageExists = false;
+	// 	for(var i=0; i<$scope.myArray.length; i++) {
+	// 		if($scope.myArray[i].url === myImage) {
+	// 			myImageExists = true;
+	// 		}
+	// 	}
 
-		if(myImageExists === false) {
-			$http.post(
-				'http://tiny-pizza-server.herokuapp.com/collections/pk',
+	// 	if(myImageExists === false) {
+	// 		$http.post(
+	// 			'http://tiny-pizza-server.herokuapp.com/collections/pk',
 				
-				{url: myImage,
-				caption: myCaption}
-			);
-		}
+	// 			{url: myImage,
+	// 			caption: myCaption}
+	// 		);
+	// 	}
 		
-		else {
-			alert('That image already exists');
-		}
+	// 	else {
+	// 		alert('That image already exists');
+	// 	}
 
-	};
+	// };
 
 // error message code
 
